@@ -1,7 +1,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
-ZSH_THEME='powerlevel9k'
+ZSH_THEME='powerlevel9k/powerlevel9k'
 
 # PowerLevel9K options
 DEFAULT_USER=$USER
