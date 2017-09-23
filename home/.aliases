@@ -116,3 +116,6 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # The Fuck alias
 eval "$(thefuck --alias)"
+
+# The VIM alias
+alias vi="/usr/local/bin/vim"
