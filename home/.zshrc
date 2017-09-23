@@ -18,6 +18,9 @@ POWERLEVEL9K_VCS_GIT_GITLAB_ICON=''
 POWERLEVEL9K_VCS_GIT_BITBUCKET_ICON=''
 POWERLEVEL9K_HIDE_BRANCH_ICON=true
 
+# Set default editor
+EDITOR=/usr/local/bin/vim
+
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS=true
 
