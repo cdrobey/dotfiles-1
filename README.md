@@ -1,6 +1,6 @@
 # My dotfiles repo
 
-I use [Homesick](https://github.com/technicalpickles/homesick) to manage my dotfiles.
+I use [Homesick](https://github.com/technicalpickles/homesick) to manage my dotfiles.  I reviewed 
 
 ## Installation
 
@@ -49,3 +49,18 @@ Install the Awesome patched fonts.
 
 ![](screenshots/iterm_text_options.png)
 
+## OS X Defaults
+
+My favorite part of this repo is the [set-defaults](osx/set-defaults.sh) script for OS X.
+
+## Resources
+
+I originally forked Nate McCurdy's dotfiles for my initial build.  I actively watch the following repositories and add the best changes to this repository:
+
+- [Nate McCurdy dotfiles](https://github.com/natemccurdy/dotfiles)
+- [GitHub ❤ ~/](http://dotfiles.github.com/)
+- [Mathias’s dotfiles](https://github.com/mathiasbynens/dotfiles)
+- [Nicolas Gallagher’s dotfiles](https://github.com/necolas/dotfiles)
+- [Cătălin’s dotfiles](https://github.com/alrra/dotfiles)
+- [Paul's dotfiles](https://github.com/paulirish/dotfiles)
+- [Jacob Gillespie’s dotfiles](https://github.com/jacobwg/dotfiles)
