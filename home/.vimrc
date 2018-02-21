@@ -11,7 +11,6 @@ Plug 'rodjek/vim-puppet'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'w0rp/ale'
 Plug 'vim-syntastic/syntastic'
 
 
