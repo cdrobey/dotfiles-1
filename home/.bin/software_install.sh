@@ -36,3 +36,11 @@ brew install ruby ruby-build rbenv
 brew cleanup
 
 gem install puppet-lint r10k --no-doc --no-ri
+
+# Puppet specific tools
+brew cask install visual-studio-code
+brew cask install pdk
+
+brew cask install virtualbox
+brew cask install firefox
+brew install gdrive
