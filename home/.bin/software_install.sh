@@ -44,3 +44,4 @@ brew cask install pdk
 brew cask install virtualbox
 brew cask install firefox
 brew install gdrive
+brew cask install the-unarchiver
