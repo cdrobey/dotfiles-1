@@ -45,3 +45,4 @@ brew cask install virtualbox
 brew cask install firefox
 brew install gdrive
 brew cask install the-unarchiver
+brew cask install spotify

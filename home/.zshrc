@@ -7,7 +7,7 @@ ZSH_THEME='powerlevel9k/powerlevel9k'
 DEFAULT_USER=$USER
 POWERLEVEL9K_MODE='awesome-patched'
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status rbenv background_jobs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv background_jobs)
 POWERLEVEL9K_STATUS_VERBOSE=false
 POWERLEVEL9K_HOME_ICON=''
 POWERLEVEL9K_HOME_SUB_ICON=''
@@ -58,3 +58,8 @@ fi
 #                  something about it is broken which breaks ls. not sure...
 source $HOME/.aliases
 
+# Setup Python VirtualENVWrapper
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
+export VIRTUAL_ENV_DISABLE_PROMPT=
