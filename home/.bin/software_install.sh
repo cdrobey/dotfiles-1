@@ -46,3 +46,17 @@ brew cask install firefox
 brew install gdrive
 brew cask install the-unarchiver
 brew cask install spotify
+brew cask install google-chrome
+brew cask install 1password
+brew cask install blue-jeans
+brew cask install hipchat
+brew cask install discord
+brew install docker
+brew cask install flash-player
+brew cask install google-cloud-sdk
+brew cask install java
+brew cask install menubar-stats
+brew cask install microsoft-remote-desktop-beta
+brew cask install teamviewer
+brew cask install vagrant
+brew cask install trello
