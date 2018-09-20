@@ -62,3 +62,6 @@ eval $(thefuck --alias)
 if [[ -f $HOME/.ripgreprc ]]; then
   export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 fi
+
+# kubectl shell completion
+if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
