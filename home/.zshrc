@@ -50,9 +50,3 @@ fi
 # NOTE about 'ls': If coreutils is installed, oh-my-zsh will alias ls to gls, but
 #                  something about it is broken which breaks ls. not sure...
 source $HOME/.aliases
-
-# Setup Python VirtualENVWrapper
-#export WORKON_HOME=$HOME/.virtualenvs
-#export PROJECT_HOME=$HOME/Devel
-#source /usr/local/bin/virtualenvwrapper.sh
-#export VIRTUAL_ENV_DISABLE_PROMPT=
