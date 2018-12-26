@@ -5,18 +5,11 @@ ZSH_THEME='powerlevel9k/powerlevel9k'
 
 # PowerLevel9K options
 DEFAULT_USER=$USER
-POWERLEVEL9K_MODE='awesome-patched'
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv background_jobs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status battery)
 POWERLEVEL9K_STATUS_VERBOSE=false
-POWERLEVEL9K_HOME_ICON=''
-POWERLEVEL9K_HOME_SUB_ICON=''
-POWERLEVEL9K_FOLDER_ICON=''
-POWERLEVEL9K_VCS_GIT_ICON=''
-POWERLEVEL9K_VCS_GIT_GITHUB_ICON=''
-POWERLEVEL9K_VCS_GIT_GITLAB_ICON=''
-POWERLEVEL9K_VCS_GIT_BITBUCKET_ICON=''
-POWERLEVEL9K_HIDE_BRANCH_ICON=true
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 
 # Set default editor
 EDITOR=/usr/local/bin/vim
@@ -59,7 +52,7 @@ fi
 source $HOME/.aliases
 
 # Setup Python VirtualENVWrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Devel
-source /usr/local/bin/virtualenvwrapper.sh
-export VIRTUAL_ENV_DISABLE_PROMPT=
+#export WORKON_HOME=$HOME/.virtualenvs
+#export PROJECT_HOME=$HOME/Devel
+#source /usr/local/bin/virtualenvwrapper.sh
+#export VIRTUAL_ENV_DISABLE_PROMPT=
