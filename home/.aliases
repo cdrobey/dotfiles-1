@@ -14,16 +14,12 @@ alias v='vagrant'
 alias vs='vagrant status'
 alias vhl='vagrant hosts list'
 
-# Tmux aliases
-alias tma='tmux attach -d -t'
-
 # Bundler aliases
 alias b='bundle'
 alias be='bundle exec'
 alias bi='bundle install'
 
 # Shortcuts
-alias d="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias h="history"
