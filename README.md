@@ -1,10 +1,6 @@
 # My dotfiles repo
 
-<<<<<<< HEAD
 I use [Homesick](https://github.com/technicalpickles/homesick) to manage my dotfiles.  I began with Nate McCurdy's dotfiles and expanded them to support my own use.
-=======
-I use [Homesick](https://github.com/technicalpickles/homesick) to manage my dotfiles.  I reviewed 
->>>>>>> d4b2fb2... Updated README.md
 
 ## (Mostly) Auto bootstrap of a new mac
 
