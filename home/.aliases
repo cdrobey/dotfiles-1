@@ -124,3 +124,12 @@ eval "$(thefuck --alias)"
 
 # The VIM alias
 alias vi="/usr/local/bin/vim"
+# Use ripgrep instead of silver searcher if it exists
+# ...I'm so used to 'ag', but I should start using 'rg' more as it's faster.
+if [[ $(which rg) =~ ^\/ ]]; then
+  function ag() {
+    echo "Use rg instead, ya dingus!"
+  }
+fi
+
+>>>>>>> f2505ce... Start using ripgrep
