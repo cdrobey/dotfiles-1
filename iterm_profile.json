@@ -6,16 +6,6 @@
     "Alpha Component" : 1,
     "Green Component" : 0.29604318737983704
   },
-  "Tags" : [
-
-  ],
-  "Ansi 12 Color" : {
-    "Red Component" : 0.44289660453796387,
-    "Color Space" : "Calibrated",
-    "Blue Component" : 0.52537077665328979,
-    "Alpha Component" : 1,
-    "Green Component" : 0.58534377813339233
-  },
   "Use Non-ASCII Font" : true,
   "Ansi 7 Color" : {
     "Red Component" : 0.5926094651222229,
