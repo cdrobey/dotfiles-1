@@ -55,3 +55,6 @@ fi
 # NOTE about 'ls': If coreutils is installed, oh-my-zsh will alias ls to gls, but
 #                  something about it is broken which breaks ls. not sure...
 source $HOME/.aliases
+
+# Setup thefuck
+eval $(thefuck --alias)
