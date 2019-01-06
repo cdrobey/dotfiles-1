@@ -26,7 +26,7 @@
 
 [core]
   whitespace = trailing-space,space-before-tab
-  editor = nvim
+  editor = vim
   excludesfile = ~/.gitignore
 
 [init]
