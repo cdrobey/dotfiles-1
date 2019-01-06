@@ -138,5 +138,8 @@ if [[ $(which rg) =~ ^\/ ]]; then
     echo "Use rg instead, ya dingus!"
   }
 fi
+<<<<<<< HEAD
 
 >>>>>>> f2505ce... Start using ripgrep
+=======
+>>>>>>> a5c46b3... Merging.
