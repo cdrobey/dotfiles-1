@@ -39,6 +39,8 @@ if [[ -z $TMUX ]]; then
   export PATH="$PATH:$HOME/.bin"
   # Add homebrew's sbin dir to PATH
   export PATH="/usr/local/sbin:$PATH"
+  # Add puppet dirs
+  PATH="/opt/puppetlabs/bin:/opt/puppetlabs/pdk/bin:/opt/puppetlabs/bolt/bin:$PATH"
 
   # Initialize rbenv
   if which rbenv >/dev/null ; then
