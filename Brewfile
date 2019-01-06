@@ -61,7 +61,7 @@ brew "wget"
 brew "xz"
 brew "yamllint"
 
- Casks
+# Casks
 cask "blue-jeans"
 cask "cyberduck"
 cask "discord"
