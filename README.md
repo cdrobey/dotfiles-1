@@ -20,16 +20,13 @@ COMPUTER_NAME=foo ./bootstrap_new_mac.sh
 ### ZSH
 
 1. oh-my-zsh: `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
-1. `mkdir ~/src`
-
-I use the [PowerLevel9k](https://github.com/bhilburn/powerlevel9k.git) ZSH theme
-
-1. `git clone https://github.com/bhilburn/powerlevel9k.git ~/src/powerlevel9k`
+1. `git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/themes/powerlevel9k`
+1. Make the following mod to .zshrc:  `ZSH_THEME='powerlevel9k/powerlevel9k'
 
 ### Homesick
 
 1. Install Homesick with `gem install homesick`
-1. Clone this castle with `homesick clone natemccurdy/dotfiles`
+1. Clone this castle with `homesick clone cdrobey/dotfiles`
 1. Create the symlinks with `homesick symlink dotfiles`
 
 ### Homebrew
