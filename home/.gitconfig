@@ -2,7 +2,6 @@
   name = Chris Roberson
   email = chris.roberson@puppet.com
   signingkey =
-
 [alias]
   co        = checkout
   ec        = config --global -e
