@@ -28,10 +28,12 @@ I use [Homebrew Bundle](https://github.com/Homebrew/homebrew-bundle) for most of
 
 ### Homesick
 
-1. Install Homesick with `gem install homesick`
+After completing the homebrew installation of ruby, you must use a hardcoded path until homesick fully configures your shell rc.
+
+1. Install Homesick with `/usr/local/opt/ruby/bin/ruby/gem install homesick`
 1. Clone this castle with `homesick clone cdrobey/dotfiles`
 1. Create the symlinks with `homesick symlink dotfiles`
-1. `gem install r10k puppet-lint rubocop`
+1. `/usr/local/opt/ruby/bin/ruby/gem install r10k puppet-lint rubocop`
 
 ### Vim plugins
 
