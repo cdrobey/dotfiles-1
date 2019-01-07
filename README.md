@@ -18,7 +18,7 @@ HOSTNAME=foo ./bootstrap_new_mac.sh
 I use [Homebrew Bundle](https://github.com/Homebrew/homebrew-bundle) for most of my application installations
 
 1. Install HomeBrew: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
-1. Install all the brews: `homesick cd && brew bundle`
+1. Install ruby, gem, brew bundler: `brew install ruby gem bundler mas`
 
 ### ZSH
 
