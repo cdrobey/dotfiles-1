@@ -81,7 +81,6 @@ cask "microsoft-remote-desktop-beta"
 cask "nzbget"
 cask "pdk"
 cask "puppet-bolt"
-cask "slack"
 cask "spotify"
 cask "teamviewer"
 cask "transmission"
@@ -92,3 +91,7 @@ cask "visual-studio-code"
 cask "vlc"
 cask "whatsapp"
 cask "wireshark"
+
+mas 'Amphetamine', id: 937984704
+mas 'Slack', id: 803453959
+
