@@ -58,9 +58,9 @@ wget https://github.com/morhetz/gruvbox-contrib/raw/master/iterm2/gruvbox-dark.i
 open gruvbox-dark.itermcolors
 rm gruvbox-dark.itermcolors
 
-# Run OSX config script
-echo "Configuring a bunch of OSX things"
-sh ~/.homesick/repos/dotfiles/home/.bin/osx.sh
+# Run MACOS config script
+echo "Configuring a bunch of MACOS things"
+sh ~/.homesick/repos/dotfiles/home/.bin/macos.sh
 
 echo
 echo "Finished!"

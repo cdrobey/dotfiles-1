@@ -4,11 +4,11 @@ I use [Homesick](https://github.com/technicalpickles/homesick) to manage my dotf
 
 ## (Mostly) Auto bootstrap of a new mac
 
-Change the `COMPUTER_NAME` environment variable to be whatever you want. Or leave it out to not change the default computer name.
+Change the `HOSTNAME` environment variable to be whatever you want. Or leave it out to not change the default computer name.
 
 ```
 curl -O https://raw.githubusercontent.com/cdrobey/dotfiles/master/bootstrap_new_mac.sh && chmod u+x bootstrap_new_mac.sh
-COMPUTER_NAME=foo ./bootstrap_new_mac.sh
+HOSTNAME=foo ./bootstrap_new_mac.sh
 ```
 
 ## Manual Installation
@@ -69,7 +69,7 @@ I originally forked Nate McCurdy's dotfiles for my initial build.  I actively wa
 ### MacOS Settings and Tweaks
 
 ```
-homesick cd && COMPUTER_NAME=foo ./home/.bin/macos.sh
+homesick cd && HOSTNAME=foo ./home/.bin/osx.sh
 ```
 
 ## Other Mac Applications
