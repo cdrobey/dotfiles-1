@@ -69,7 +69,7 @@ I originally forked Nate McCurdy's dotfiles for my initial build.  I actively wa
 ### MacOS Settings and Tweaks
 
 ```
-homesick cd && COMPUTER_NAME=foo ./home/.bin/osx.sh
+homesick cd && COMPUTER_NAME=foo ./home/.bin/macos.sh
 ```
 
 ## Other Mac Applications
@@ -90,19 +90,3 @@ mas install 1082624744   # Gifox
 mas install 419330170    # Moom
 mas install 412485838    # Witch
 ```
-
-## OS X Defaults
-
-My favorite part of this repo is the [set-defaults](osx/set-defaults.sh) script for OS X.
-
-## Resources
-
-I originally forked Nate McCurdy's dotfiles for my initial build.  I actively watch the following repositories and add the best changes to this repository:
-
-- [Nate McCurdy dotfiles](https://github.com/natemccurdy/dotfiles)
-- [GitHub ❤ ~/](http://dotfiles.github.com/)
-- [Mathias’s dotfiles](https://github.com/mathiasbynens/dotfiles)
-- [Nicolas Gallagher’s dotfiles](https://github.com/necolas/dotfiles)
-- [Cătălin’s dotfiles](https://github.com/alrra/dotfiles)
-- [Paul's dotfiles](https://github.com/paulirish/dotfiles)
-- [Jacob Gillespie’s dotfiles](https://github.com/jacobwg/dotfiles)
