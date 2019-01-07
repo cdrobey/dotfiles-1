@@ -87,7 +87,7 @@ source $ZSH/oh-my-zsh.sh
 # Set default editor
 export EDITOR=/usr/local/bin/vim
 
-# export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -130,6 +130,8 @@ if [[ -z $TMUX ]]; then
     [[ $PATH =~ 'rbenv/shims' ]] || eval "$(rbenv init -)"
   fi
 fi
+
+export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 # Source my external alias config
 # NOTE about 'ls': If coreutils is installed, oh-my-zsh will alias ls to gls, but

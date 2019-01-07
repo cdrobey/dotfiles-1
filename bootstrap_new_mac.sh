@@ -18,11 +18,11 @@ brew doctor
 [[ -d ~/src ]] || mkdir ~/src
 
 # Grab PowerLevel9k
-git clone https://github.com/bhilburn/powerlevel9k.git ~/src/powerlevel9k
+git clone https://github.com/bhilburn/powerlevel9k.git  ~/.oh-my-zsh/custom/themes/powerlevel9k
 
 # Get Homesick for dotfiles
 sudo gem install homesick --no-doc --no-ri
-homesick clone natemccurdy/dotfiles
+homesick clone cdrobey/dotfiles
 homesick symlink dotfiles
 
 # Install HomeBrew apps
@@ -50,6 +50,7 @@ sudo dscl . -create "/Users/$USER" UserShell /usr/local/bin/zsh
 # Get fonts
 echo "Downloading Inconsolata fonts to ~/Library/Fonts/"
 wget -P ~/Library/Fonts/ https://github.com/gabrielelana/awesome-terminal-fonts/raw/patching-strategy/patched/Inconsolata%2BAwesome.ttf
+wget -P ~/Library/Fonts/ https://github.com/powerline/fonts/blob/master/Meslo%20Slashed/Meslo%20LG%20M%20Regular%20for%20Powerline.ttf
 
 # Get iTerm gruvbox colors
 echo "Installing GruvBox colors for iTerm2"
@@ -64,7 +65,7 @@ sh ~/.homesick/repos/dotfiles/home/.bin/osx.sh
 echo
 echo "Finished!"
 echo
-echo "All that's left is to configure iTerm2: https://github.com/natemccurdy/dotfiles#colors-and-fonts"
+echo "All that's left is to configure iTerm2: https://github.com/chris.roberson/dotfiles#colors-and-fonts"
 echo
 read -r -p "Also, you should reboot. Do that now? [Y/n]: " answer
 if [[ $answer =~ ^[Yy]$ ]]; then
