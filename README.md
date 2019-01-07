@@ -7,23 +7,11 @@ I use [Homesick](https://github.com/technicalpickles/homesick) to manage my dotf
 Change the `COMPUTER_NAME` environment variable to be whatever you want. Or leave it out to not change the default computer name.
 
 ```
-curl -O https://raw.githubusercontent.com/natemccurdy/dotfiles/master/bootstrap_new_mac.sh && chmod u+x bootstrap_new_mac.sh
+curl -O https://raw.githubusercontent.com/cdrobey/dotfiles/master/bootstrap_new_mac.sh && chmod u+x bootstrap_new_mac.sh
 COMPUTER_NAME=foo ./bootstrap_new_mac.sh
 ```
 
 ## Manual Installation
-
-### ZSH
-
-1. oh-my-zsh: `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
-1. `git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/themes/powerlevel9k`
-1. Make the following mod to .zshrc:  `ZSH_THEME='powerlevel9k/powerlevel9k'
-
-### Homesick
-
-1. Install Homesick with `gem install homesick`
-1. Clone this castle with `homesick clone cdrobey/dotfiles`
-1. Create the symlinks with `homesick symlink dotfiles`
 
 ### Homebrew
 
@@ -32,11 +20,10 @@ I use [Homebrew Bundle](https://github.com/Homebrew/homebrew-bundle) for most of
 1. Install HomeBrew: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 1. Install all the brews: `homesick cd && brew bundle`
 
-### Gems
+### ZSH
 
 1. oh-my-zsh: `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
-1. `mkdir ~/src`
-1. `git clone https://github.com/bhilburn/powerlevel9k.git ~/.themes/powerlevel9k
+1. powerlevel9k theme: `git clone https://github.com/bhilburn/powerlevel9k.git  ~/.oh-my-zsh/custom/themes/powerlevel9k'
 1. Make the following mod to .zshrc:  `ZSH_THEME='powerlevel9k/powerlevel9k'
 
 ### Homesick
@@ -56,17 +43,15 @@ I use [Homebrew Bundle](https://github.com/Homebrew/homebrew-bundle) for most of
 GruvBox iTerm2 color scheme. Download it, open it, then set it as your profile's color scheme: <https://github.com/morhetz/gruvbox-contrib/raw/master/iterm2/gruvbox-dark.itermcolors>
 
 
-I use the Awesome patched fonts.
-
+I prefer the Powerline Meslo font for iterm2, but you can find many options.
 1. Download and and doubleclick to import or move it to `~/Library/Fonts/`
-    * <https://github.com/gabrielelana/awesome-terminal-fonts/raw/patching-strategy/patched/Inconsolata%2BAwesome.ttf>
+    * <https://github.com/powerline/fonts/blob/master/Meslo%20Slashed/Meslo%20LG%20M%20Regular%20for%20Powerline.ttf>
 1. Configure your profile in iTerm2 to use that font for **Non ASCII Font**:
 
 ![](screenshots/iterm_text_options.png)
 
-## OS X Defaults
-
-My favorite part of this repo is the [set-defaults](osx/set-defaults.sh) script for OS X.
+## MacOS Defaults
+I scavenged a set of defaults from a series of repositories.  The script exists in CASTLE/home/.bin/osx.shand provides a great starting point for a new mac.
 
 ## Resources
 
