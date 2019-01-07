@@ -18,7 +18,7 @@ HOSTNAME=foo ./bootstrap_new_mac.sh
 I use [Homebrew Bundle](https://github.com/Homebrew/homebrew-bundle) for most of my application installations
 
 1. Install HomeBrew: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
-1. Install ruby, gem, brew bundler: `brew install ruby gem bundler mas`
+1. Install ruby and mas: `brew install ruby mas`
 
 ### ZSH
 
@@ -55,6 +55,16 @@ I prefer the Powerline Meslo font for iterm2, but you can find many options.
 ## MacOS Defaults
 I scavenged a set of defaults from a series of repositories.  The script exists in CASTLE/home/.bin/osx.shand provides a great starting point for a new mac.
 
+### MacOS Settings and Tweaks
+
+```
+homesick cd && HOSTNAME=foo ./home/.bin/osx.sh
+```
+## Other Mac Applications
+
+Here are some apps from the Apple Store that I use all the time. They're on Homebrew, but I use the App Store versions so that my registration info is automatically setup.
+
+* Amphetamine: <https://itunes.apple.com/us/app/amphetamine/id937984704?mt=12>
 ## Resources
 
 I originally forked Nate McCurdy's dotfiles for my initial build.  I actively watch the following repositories and add the best changes to this repository:
@@ -66,14 +76,4 @@ I originally forked Nate McCurdy's dotfiles for my initial build.  I actively wa
 - [Cătălin’s dotfiles](https://github.com/alrra/dotfiles)
 - [Paul's dotfiles](https://github.com/paulirish/dotfiles)
 - [Jacob Gillespie’s dotfiles](https://github.com/jacobwg/dotfiles)
-### MacOS Settings and Tweaks
 
-```
-homesick cd && HOSTNAME=foo ./home/.bin/osx.sh
-```
-
-## Other Mac Applications
-
-Here are some apps from the Apple Store that I use all the time. They're on Homebrew, but I use the App Store versions so that my registration info is automatically setup.
-
-* Amphetamine: <https://itunes.apple.com/us/app/amphetamine/id937984704?mt=12>
