@@ -60,7 +60,7 @@ I scavenged a set of defaults from a series of repositories.  The script exists 
 ```
 homesick cd && HOSTNAME=foo ./home/.bin/osx.sh
 ```
-## Other Mac Applications
+### Other Mac Applications
 
 Here are some apps from the Apple Store that I use all the time. They're on Homebrew, but I use the App Store versions so that my registration info is automatically setup.
 
