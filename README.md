@@ -25,6 +25,8 @@ I use [Homebrew Bundle](https://github.com/Homebrew/homebrew-bundle) for most of
 1. oh-my-zsh: `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
 1. powerlevel9k theme: `git clone https://github.com/bhilburn/powerlevel9k.git  ~/.oh-my-zsh/custom/themes/powerlevel9k`
 1. Make the following mod to .zshrc:  `ZSH_THEME='powerlevel9k/powerlevel9k`
+1. zsh-autosuggestions: `git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions`
+1. zsh-syntax-highlighting: `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting`
 
 ### Homesick
 
