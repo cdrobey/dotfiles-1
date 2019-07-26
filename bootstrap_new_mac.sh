@@ -46,6 +46,8 @@ vim +PlugInstall +qall
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 echo "Changing ${USER}'s shell to Brew's zsh..."
 sudo dscl . -create "/Users/$USER" UserShell /usr/local/bin/zsh
+git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 
 # Get fonts
 echo "Downloading Inconsolata fonts to ~/Library/Fonts/"
