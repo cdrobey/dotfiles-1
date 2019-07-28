@@ -1,12 +1,12 @@
-# Config for Powerlevel10k with lean prompt style. Doesn't require a custom font but can take
-# advantage of it if available. The color scheme is suitable for dark terminal background.
+# Config for Powerlevel10k with classic powerline prompt style. Requires a powerline font.
+# The color scheme is suitable for dark terminal background.
 #
-# Once you've installed Powerlevel10k, run these commands to apply lean style.
+# Once you've installed Powerlevel10k, run these commands to apply classic style.
 #
-#   curl -fsSL -o ~/p10k-lean.zsh https://raw.githubusercontent.com/romkatv/powerlevel10k/master/config/p10k-lean.zsh
-#   echo 'source ~/p10k-lean.zsh' >>! ~/.zshrc
+#   curl -fsSL -o ~/p10k-classic.zsh https://raw.githubusercontent.com/romkatv/powerlevel10k/master/config/p10k-classic.zsh
+#   echo 'source ~/p10k-classic.zsh' >>! ~/.zshrc
 #
-# To customize your prompt, open ~/p10k-lean.zsh in your favorite text editor, change it and
+# To customize your prompt, open ~/p10k-classic.zsh in your favorite text editor, change it and
 # restart ZSH. The file is well-documented.
 #
 # Tip: Looking for a nice color? Here's a one-liner to print colormap.
@@ -14,11 +14,10 @@
 #   for i in {0..255}; do print -Pn "%${i}F${(l:3::0:)i}%f " ${${(M)$((i%8)):#7}:+$'\n'}; done
 
 if [[ -o 'aliases' ]]; then
-  # Temporarily disable aliases.
   'builtin' 'unsetopt' 'aliases'
-  local p10k_lean_restore_aliases=1
+  local p9k_classic_restore_aliases=1
 else
-  local p10k_lean_restore_aliases=0
+  local p9k_classic_restore_aliases=0
 fi
 
 () {
@@ -30,14 +29,12 @@ fi
   unset -m 'POWERLEVEL9K_*'
 
   # The list of segments shown on the left. Fill it with the most important segments.
-  typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
+  typeset -ga POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
       # =========================[ Line #1 ]=========================
-      # os_icon               # os identifier
       dir                     # current directory
       vcs                     # git status
       # =========================[ Line #2 ]=========================
       newline
-      prompt_char             # prompt symbol
   )
 
   # The list of segments shown on the right. Fill it with less important segments.
@@ -57,31 +54,23 @@ fi
       # nodeenv               # node.js environment (https://github.com/ekalinin/nodeenv)
       # node_version          # node.js version
       # kubecontext           # current kubernetes context (https://kubernetes.io/)
-      # nordvpn               # nordvpn connection status, linux only (https://nordvpn.com/)
       # example               # example user-defined segment (see prompt_example function below)
       context                 # user@host
       # =========================[ Line #2 ]=========================
       newline
+      # nordvpn               # nordvpn connection status, linux only (https://nordvpn.com/)
       # public_ip             # public IP address
       # battery               # internal battery
       # time                  # current time
   )
-
-  # Basic style options that define the overall look of your prompt. You probably don't want to
-  # change them.
-  typeset -g POWERLEVEL9K_BACKGROUND=                            # transparent background
-  typeset -g POWERLEVEL9K_{LEFT,RIGHT}_{LEFT,RIGHT}_WHITESPACE=  # no surrounding whitespace
-  typeset -g POWERLEVEL9K_{LEFT,RIGHT}_SUBSEGMENT_SEPARATOR=' '  # separate segments with a space
-  typeset -g POWERLEVEL9K_{LEFT,RIGHT}_SEGMENT_SEPARATOR=        # no end-of-line symbol
 
   # To disable default icons for all segments, set POWERLEVEL9K_VISUAL_IDENTIFIER_EXPANSION=''.
   #
   # To enable default icons for all segments, don't define POWERLEVEL9K_VISUAL_IDENTIFIER_EXPANSION
   # or set it to '${P9K_VISUAL_IDENTIFIER}'.
   #
-  # To remove spaces from all default icons, set POWERLEVEL9K_VISUAL_IDENTIFIER_EXPANSION
-  # to '${P9K_VISUAL_IDENTIFIER// }'. You'll know that you you need this option if you see extra
-  # spaces after icons.
+  # To remove trailing space from all default icons, set POWERLEVEL9K_VISUAL_IDENTIFIER_EXPANSION
+  # to '${P9K_VISUAL_IDENTIFIER% }'.
   #
   # To enable default icons for one segment (e.g., dir), set
   # POWERLEVEL9K_DIR_VISUAL_IDENTIFIER_EXPANSION='${P9K_VISUAL_IDENTIFIER}'.
@@ -98,7 +87,7 @@ fi
   #
   # Note: Many default icons cannot be displayed with system fonts. You'll need to install a
   # capable font to use them. See POWERLEVEL9K_MODE below.
-  typeset -g POWERLEVEL9K_VISUAL_IDENTIFIER_EXPANSION=
+  typeset -g POWERLEVEL9K_VISUAL_IDENTIFIER_EXPANSION='${P9K_VISUAL_IDENTIFIER}'
 
   # This option makes a difference only when default icons are enabled for all or some prompt
   # segments (see POWERLEVEL9K_VISUAL_IDENTIFIER_EXPANSION above). LOCK_ICON can be printed as
@@ -114,14 +103,12 @@ fi
   #   Awesome-Terminal Fonts (regular) | awesome-fontconfig
   #   Awesome-Terminal Fonts (patched) | awesome-patched
   #   Nerd Fonts                       | nerdfont-complete
-  #   Other                            | compatible
   #
-  # If this looks overwhelming, either stick with a preinstalled system font and set
-  # POWERLEVEL9K_MODE=compatible, or install a font from https://github.com/ryanoasis/nerd-fonts
+  # If this looks overwhelming, install a font from https://github.com/ryanoasis/nerd-fonts
   # and set POWERLEVEL9K_MODE=nerdfont-complete. "Meslo LG S Regular Nerd Font Complete Mono" from
   # https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Meslo/S/Regular/complete is
   # very good.
-  typeset -g POWERLEVEL9K_MODE=awesome-fontconfig
+  typeset -g POWERLEVEL9K_MODE=nerdfont-complete
 
   # When set to true, icons appear before content on both sides of the prompt. When set
   # to false, icons go after content. If empty or not set, icons go before content in the left
@@ -134,56 +121,60 @@ fi
   # Or for a specific segment in specific state:
   #
   #   POWERLEVEL9K_DIR_NOT_WRITABLE_ICON_BEFORE_CONTENT=false
-  typeset -g POWERLEVEL9K_ICON_BEFORE_CONTENT=true
+  typeset -g POWERLEVEL9K_ICON_BEFORE_CONTENT=
 
   # Add an empty line before each prompt.
   typeset -g POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
-  # Ruler, a.k.a. the horizontal line before each prompt. If you set it to true, you'll
-  # probably want to set POWERLEVEL9K_PROMPT_ADD_NEWLINE=false above and
-  # POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_CHAR=' ' below.
-  typeset -g POWERLEVEL9K_SHOW_RULER=false
-  typeset -g POWERLEVEL9K_RULER_CHAR='─'        # reasonable alternative: '·'
-  typeset -g POWERLEVEL9K_RULER_FOREGROUND=8
+  # Connect left prompt lines with these symbols. You'll probably want to use the same color
+  # as POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_FOREGROUND below.
+  typeset -g   POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX='%F{8}╭─'
+  typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_PREFIX='%F{8}├─'
+  typeset -g    POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='%F{8}╰─'
+  # Connect right prompt lines with these symbols.
+  typeset -g   POWERLEVEL9K_MULTILINE_FIRST_PROMPT_SUFFIX='%F{8}─╮'
+  typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_SUFFIX='%F{8}─┤'
+  typeset -g    POWERLEVEL9K_MULTILINE_LAST_PROMPT_SUFFIX='%F{8}─╯'
 
-  # Filler between left and right prompt on the first prompt line. You can set it to '·' or '─'
-  # to make it easier to see the alignment between left and right prompt and to separate prompt
-  # from command output. It serves the same purpose as ruler (see above) without increasing
-  # the number of prompt lines. You'll probably want to set POWERLEVEL9K_SHOW_RULER=false
-  # if using this. You might also like POWERLEVEL9K_PROMPT_ADD_NEWLINE=false for more compact
-  # prompt.
+  # Filler between left and right prompt on the first prompt line. You can set it to ' ', '·' or
+  # '─'. The last two make it easier to see the alignment between left and right prompt and to
+  # separate prompt from command output. You might want to set POWERLEVEL9K_PROMPT_ADD_NEWLINE=false
+  # for more compact prompt if using using this option.
   typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_CHAR=' '
+  typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_BACKGROUND=
   if [[ $POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_CHAR != ' ' ]]; then
-    # The color of the filler.
+    # The color of the filler. You'll probably want to match the color of POWERLEVEL9K_MULTILINE
+    # ornaments defined above.
     typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_FOREGROUND=8
-    # Add a space between the end of left prompt and the filler.
-    typeset -g POWERLEVEL9K_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL=' '
-    # Add a space between the filler and the start of right prompt.
-    typeset -g POWERLEVEL9K_RIGHT_PROMPT_FIRST_SEGMENT_START_SYMBOL=' '
     # Start filler from the edge of the screen if there are no left segments on the first line.
     typeset -g POWERLEVEL9K_EMPTY_LINE_LEFT_PROMPT_FIRST_SEGMENT_END_SYMBOL='%{%}'
     # End filler on the edge of the screen if there are no right segments on the first line.
     typeset -g POWERLEVEL9K_EMPTY_LINE_RIGHT_PROMPT_FIRST_SEGMENT_START_SYMBOL='%{%}'
   fi
 
+  # Default background color.
+  typeset -g POWERLEVEL9K_BACKGROUND=236
+
+  # Separator between same-color segments on the left.
+  typeset -g POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='%244F\uE0B1'
+  # Separator between same-color segments on the right.
+  typeset -g POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR='%244F\uE0B3'
+  # Separator between different-color segments on the left.
+  typeset -g POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0B0'
+  # Separator between different-color segments on the right.
+  typeset -g POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\uE0B2'
+  # Left prompt terminator (rightmost symbol).
+  typeset -g POWERLEVEL9K_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL='\uE0B0'
+  # Right prompt terminator (leftmost symbol).
+  typeset -g POWERLEVEL9K_RIGHT_PROMPT_FIRST_SEGMENT_START_SYMBOL='\uE0B2'
+  # Left prompt terminator for lines without any segments.
+  typeset -g POWERLEVEL9K_EMPTY_LINE_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL=
+
   #################################[ os_icon: os identifier ]##################################
-  # OS identifier color.
-  typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=212
+  # Foreground color.
+  typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=7
   # Display this icon instead of the default.
   # typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='⭐'
-
-  ################################[ prompt_char: prompt symbol ]################################
-  # Green prompt symbol if the last command succeeded.
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS}_FOREGROUND=76
-  # Red prompt symbol if the last command failed.
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS}_FOREGROUND=196
-  # Default prompt symbol.
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIINS_CONTENT_EXPANSION='❯'
-  # Prompt symbol in command vi mode.
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VICMD_CONTENT_EXPANSION='❮'
-  # Prompt symbol in visual vi mode.
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIVIS_CONTENT_EXPANSION='Ⅴ'
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL=''
 
   ##################################[ dir: current directory ]##################################
   # Default current directory color.
@@ -216,9 +207,8 @@ fi
 
   # Enable special styling for non-writable directories.
   typeset -g POWERLEVEL9K_DIR_SHOW_WRITABLE=true
-  # Show this icon when the current directory is not writable. POWERLEVEL9K_DIR_SHOW_WRITABLE
-  # above must be set to true for this parameter to have effect.
-  # POWERLEVEL9K_DIR_NOT_WRITABLE_VISUAL_IDENTIFIER_EXPANSION='⭐'
+  # Show this icon when the current directory is not writable. Empty for no icon. 
+  # typeset -g POWERLEVEL9K_DIR_NOT_WRITABLE_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   # POWERLEVEL9K_DIR_CLASSES allows you to specify custom icons for different directories.
   # It must be an array with 3 * N elements. Each triplet consists of:
@@ -284,7 +274,7 @@ fi
   # !42 if have unstaged changes.
   vcs+='${${VCS_STATUS_NUM_UNSTAGED:#0}:+ %11F!${VCS_STATUS_NUM_UNSTAGED}}'
   # ?42 if have untracked files.
-  vcs+='${${VCS_STATUS_NUM_UNTRACKED:#0}:+ %12F?${VCS_STATUS_NUM_UNTRACKED}}'
+  vcs+='${${VCS_STATUS_NUM_UNTRACKED:#0}:+ %75F?${VCS_STATUS_NUM_UNTRACKED}}'
   # If P9K_CONTENT is not empty, leave it unchanged. It's either "loading" or from vcs_info.
   vcs="\${P9K_CONTENT:-$vcs}"
 
@@ -323,39 +313,44 @@ fi
   # Enable OK_PIPE, ERROR_PIPE and ERROR_SIGNAL status states to allow us to enable, disable and
   # style them independently from the regular OK and ERROR state.
   typeset -g POWERLEVEL9K_STATUS_EXTENDED_STATES=true
-  # Don't show status on success. prompt_char already indicates success with green color.
-  typeset -g POWERLEVEL9K_STATUS_OK=false
-  # Don't show status when it's just an error code (e.g., '1'). prompt_char already indicates errors
-  # with red color and error codes aren't interesting enough to waste prompt real estate on them.
-  typeset -g POWERLEVEL9K_STATUS_ERROR=false
-  typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND=9
-  # Show status when the last command was terminated by a signal.
+
+  # Status on success. No content, just an icon.
+  typeset -g POWERLEVEL9K_STATUS_OK=true
+  typeset -g POWERLEVEL9K_STATUS_OK_FOREGROUND=2
+  typeset -g POWERLEVEL9K_STATUS_OK_VISUAL_IDENTIFIER_EXPANSION='✔'
+
+  # Status when some part of a pipe command fails but the overall exit status is zero. It may look
+  # like this: 1|0.
+  typeset -g POWERLEVEL9K_STATUS_OK_PIPE=true
+  typeset -g POWERLEVEL9K_STATUS_OK_PIPE_FOREGROUND=2
+  typeset -g POWERLEVEL9K_STATUS_OK_PIPE_VISUAL_IDENTIFIER_EXPANSION='✔'
+
+  # Status when it's just an error code (e.g., '1').
+  typeset -g POWERLEVEL9K_STATUS_ERROR=true
+  typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND=1
+  typeset -g POWERLEVEL9K_STATUS_ERROR_VISUAL_IDENTIFIER_EXPANSION='↵'
+
+  # Status when the last command was terminated by a signal.
   typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL=true
-  typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL_FOREGROUND=9
+  typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL_FOREGROUND=1
   # Use terse signal names: "INT" instead of "SIGINT(2)".
   typeset -g POWERLEVEL9K_STATUS_VERBOSE_SIGNAME=false
-  # Show status when a pipe command fails and the overall exit status is non-zero. It may look
-  # like this: 0|1. prompt_char is red in this case.
+  typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL_VISUAL_IDENTIFIER_EXPANSION='↵'
+
+  # Status when some part of a pipe command fails and the overall exit status is also non-zero.
+  # It may look like this: 1|0.
   typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE=true
-  typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE_FOREGROUND=9
-  # Show status when a pipe command fails and the overall exit status is zero. It may look
-  # like this: 1|0. prompt_char is green in this case.
-  typeset -g POWERLEVEL9K_STATUS_OK_PIPE=true
-  typeset -g POWERLEVEL9K_STATUS_OK_PIPE_FOREGROUND=9
-  # Custom icons.
-  # typeset -g POWERLEVEL9K_STATUS_OK_VISUAL_IDENTIFIER_EXPANSION='⭐'
-  # typeset -g POWERLEVEL9K_STATUS_OK_PIPE_VISUAL_IDENTIFIER_EXPANSION='⭐'
-  # typeset -g POWERLEVEL9K_STATUS_ERROR_VISUAL_IDENTIFIER_EXPANSION='⭐'
-  # typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE_VISUAL_IDENTIFIER_EXPANSION='⭐'
-  # typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL_VISUAL_IDENTIFIER_EXPANSION='⭐'
+  typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE_FOREGROUND=1
+  typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE_VISUAL_IDENTIFIER_EXPANSION='↵'
 
   ###################[ command_execution_time: duration of the last command ]###################
+  # Background color.
   # Show duration of the last command if takes longer than this many seconds.
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=3
   # Show this many fractional digits. Zero means round to seconds.
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=0
   # Execution time color.
-  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND=101
+  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND=248
   # Duration format: 1d 2h 3m 4s.
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FORMAT='d h m s'
   # Custom icon.
@@ -365,13 +360,13 @@ fi
   # Don't show the number of background jobs.
   typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VERBOSE=false
   # Background jobs color.
-  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND=2
+  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND=6
   # Icon to show when there are background jobs.
-  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VISUAL_IDENTIFIER_EXPANSION='⇶'
+  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VISUAL_IDENTIFIER_EXPANSION='${P9K_VISUAL_IDENTIFIER}'
 
   ##########[ nordvpn: nordvpn connection status, linux only (https://nordvpn.com/) ]###########
   # NordVPN connection indicator color when connected.
-  typeset -g POWERLEVEL9K_NORDVPN_CONNECTED_FOREGROUND=4
+  typeset -g POWERLEVEL9K_NORDVPN_CONNECTED_FOREGROUND=2
   # NordVPN connection indicator color when not connected.
   typeset -g POWERLEVEL9K_NORDVPN_{DISCONNECTED,CONNECTING,DISCONNECTING}_FOREGROUND=3
   # Custom icons.
@@ -387,7 +382,7 @@ fi
   # Context format: user@host.
   typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE='%n@%m'
   # Default context color.
-  typeset -g POWERLEVEL9K_CONTEXT_FOREGROUND=244
+  typeset -g POWERLEVEL9K_CONTEXT_FOREGROUND=12
   # Context color when running with privileges.
   typeset -g POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND=11
   # Don't show context unless running with privileges on in SSH.
@@ -476,7 +471,7 @@ fi
   # typeset -g POWERLEVEL9K_KUBECONTEXT_PROD_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # typeset -g POWERLEVEL9K_KUBECONTEXT_TEST_FOREGROUND=2
   # typeset -g POWERLEVEL9K_KUBECONTEXT_TEST_VISUAL_IDENTIFIER_EXPANSION='⭐'
-  typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_FOREGROUND=5
+  typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_FOREGROUND=13
   # typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   # Kubernetes context too long? You can shorten it by defining an expansion. The original
@@ -507,8 +502,8 @@ fi
   typeset -g POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND=3
   # Battery pictograms going from low to high level of charge.
   typeset -g POWERLEVEL9K_BATTERY_STAGES='▁▂▃▄▅▆▇'
-  # Display battery pictogram on black background.
-  typeset -g POWERLEVEL9K_BATTERY_VISUAL_IDENTIFIER_EXPANSION='%K{236}${P9K_VISUAL_IDENTIFIER}%k'
+  # Display battery pictogram without background.
+  typeset -g POWERLEVEL9K_BATTERY_VISUAL_IDENTIFIER_EXPANSION='%k${P9K_VISUAL_IDENTIFIER}'
   # Don't show battery when it's fully charged and connected to power supply.
   typeset -g POWERLEVEL9K_BATTERY_CHARGED_{CONTENT,VISUAL_IDENTIFIER}_EXPANSION=
   # Don't show the remaining time to charge/discharge.
@@ -540,5 +535,5 @@ fi
   typeset -g POWERLEVEL9K_EXAMPLE_VISUAL_IDENTIFIER_EXPANSION='${P9K_VISUAL_IDENTIFIER}'
 }
 
-(( ! p10k_lean_restore_aliases )) || setopt aliases
-'builtin' 'unset' 'p10k_lean_restore_aliases'
+(( ! p9k_classic_restore_aliases )) || setopt aliases
+'builtin' 'unset' 'p9k_classic_restore_aliases'
