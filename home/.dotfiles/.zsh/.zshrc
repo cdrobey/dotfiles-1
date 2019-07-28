@@ -6,7 +6,7 @@
 export DOTFILES="$HOME/.dotfiles"
 
 # your project folder that we can `c [tab]` to
-export PROJECTS="$HOME/Projects"
+export PROJECTS="$HOME/Code"
 
 # your default editor
 export EDITOR='vim'
