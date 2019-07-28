@@ -3,18 +3,12 @@
 
 # Taps
 tap "caskroom/cask"
-tap "homebrew/boneyard"
 tap "homebrew/bundle"
 tap "homebrew/core"
 
 # Essentials
 brew "git"
-brew "jq"
-brew "reattach-to-user-namespace"
 brew "shellcheck"
-brew "the_silver_searcher"
-brew "ripgrep"
-brew "thefuck"
 brew "tmux"
 brew "tree"
 brew "vim", args: ["with-override-system-vi"]
@@ -63,21 +57,13 @@ brew "yamllint"
 
 # Casks
 cask "blue-jeans"
-cask "cyberduck"
 cask "discord"
 cask "docker"
-cask "evernote"
-cask "firefox"
 cask "google-chrome"
-cask "istat-menus"
 cask "iterm2"
 cask "java"
-cask "karabiner-elements"
-cask "kodi"
 cask "macdown"
 cask "marked"
-cask "menubar-stats"
-cask "microsoft-remote-desktop-beta"
 cask "nzbget"
 cask "pdk"
 cask "puppet-bolt"
@@ -90,8 +76,3 @@ cask "vagrant"
 cask "visual-studio-code"
 cask "vlc"
 cask "whatsapp"
-cask "wireshark"
-
-mas 'Amphetamine', id: 937984704
-mas 'Slack', id: 803453959
-

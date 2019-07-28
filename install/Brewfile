@@ -1,0 +1,65 @@
+# Taps
+tap 'caskroom/cask'
+tap 'caskroom/eid'
+tap 'caskroom/fonts'
+tap 'caskroom/versions'
+tap 'homebrew/bundle'
+
+# Binaries
+brew 'awscli'
+brew 'bash'
+brew 'bat'
+brew 'coreutils'
+brew 'getantibody/tap/antibody'
+brew 'git'
+brew 'gnupg2'
+brew 'grep'
+brew 'mackup'
+brew 'mas'
+brew 'pkg-config'
+brew 'trash'
+brew 'tree'
+brew 'zlib'
+brew 'zsh'
+brew 'zsh-completions'
+
+# Apps
+cask 'alfred'
+cask 'caffeine'
+cask 'discord'
+cask 'docker'
+cask 'firefox'
+cask 'github'
+cask 'google-backup-and-sync'
+cask 'google-chrome'
+cask 'gpg-suite'
+cask 'java'
+cask 'slack'
+cask 'vagrant'
+cask 'virtualbox'
+cask 'virtualbox-extension-pack'
+
+# Quicklook
+cask 'qlcolorcode'
+cask 'qlmarkdown'
+cask 'quicklook-json'
+cask 'quicklook-csv'
+cask 'qlstephen'
+
+# Fonts
+cask 'font-lato'
+cask 'font-open-sans'
+cask 'font-roboto'
+cask 'font-source-code-pro-for-powerline'
+cask 'font-meslo-for-powerline'
+cask 'font-source-code-pro'
+cask 'font-source-sans-pro'
+cask 'font-source-serif-pro'
+cask 'font-meslo-for-powerline'
+
+
+# Mac App Store
+mas '1Password', id: 1333542190
+mas 'The Unarchiver', id: 425424353
+mas 'Tweetbot', id: 1384080005
+mas 'WhatsApp', id: 1147396723 
